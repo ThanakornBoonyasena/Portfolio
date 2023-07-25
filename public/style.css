@@ -5,100 +5,62 @@
 
 :root {
     --ff-body: 'Tahoma', 'Segoe UI', 'Lucida Console';
-    --clr-black: #0F0A1D;
+    --clr-black: #0a131d;
     --clr-purle: #6735D3;
     --clr-yellow: #FFC857;
-    --clr-green: #0ADF83;
-    --combined-colors:linear-gradient(45deg, var(--clr-purle) 20%,var(--clr-yellow));
+    --clr-green: #0adf6a;
+    --combined-colors:linear-gradient(45deg, var(--clr-green) 0%,var(--clr-yellow));
+    --fs-header: 2rem;
+    --fs-display: 1.25rem;
+    --fs-body: 1rem;
+
 }
+
 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 20rem;
     font-family: var(--ff-body);
+    font-size: clamp(20px, 2vw, 32px);
 }
-
-@media (max-width: 950px) {
-    nav {
-        height: 500px !important;
-        width: 170px !important;
-        align-items: center;
-        flex-direction: column;
-        background: none !important;
-    }
-    #bar {
-        flex-direction: column;
-        width: 100%;
-        background: var(--combined-colors);
-        border-radius: 0 .5rem .5rem 0;
-        left: -100%;
-    }
-    #btn {
-        display: block !important;
-        width: 80px !important;
-        height: 100px !important;
-    }
-}
-
-@media (max-width: 550px) {
-    nav {
-        position: absolute !important;
-        height: 400px !important;
-        width: 150px !important;
-    }
-    #bar {
-        flex-direction: column;
-    }
-    #btn {
-        width: 60px !important;
-        height: 80px !important;
-    }
-}
-
 
 
 body {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
     background: var(--clr-black);
 }
 
-nav {
-    background: var(--combined-colors);
+header {
     height: 100px;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 100;
     display: flex;
-}
-
-#btn {
-    display: none;
-    border-radius: 50%;
-    background: var(--clr-green);
-    margin: 2rem;
-    border: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 section {
-    height: 1200px;
+    padding-top: 100px;
+    width: 100vw;
+    height: 100vh;
 }
 
-#bar {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
+header > * {
+    margin: var(--fs-body);
 }
 
-.navbtn {
-    text-decoration: none;
-    color: #fff;
-    font-size: clamp(1.5rem , 2vw, 2rem);
+.menu{
+    
+}
+
+.display {
+    background: var(--combined-colors);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: var(--fs-header);
 }
 
