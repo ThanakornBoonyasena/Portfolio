@@ -7,16 +7,16 @@
     --ff-body: 'Tahoma', 'Segoe UI', 'Lucida Console';
     --clr-black: #0a131d;
     --clr-purle: #6735D3;
-    --clr-yellow: #FFC857;
-    --clr-green: #0adf6a;
+    --clr-yellow: #e68c25;
+    --clr-green: #0adf5c;
     --clr-gray:#0d2835;
     --clr-white:#c7e2d5;
-    --combined-colors:linear-gradient(45deg, var(--clr-green) 0%,var(--clr-yellow));
+    --combined-colors-1:linear-gradient(45deg, var(--clr-green) 15%,var(--clr-yellow));
+    --combined-colors-2:linear-gradient(45deg, var(--clr-green) 35%,var(--clr-yellow)57.5%);
     --fs-header: 1.75rem;
     --fs-display: 1.25rem;
     --fs-body: 0.75rem;
 }
-
 
 html {
     scroll-behavior: smooth;
@@ -48,10 +48,23 @@ section {
     padding-top: 100px;
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
+#display {
+    background: var(--combined-colors-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: var(--fs-header);
+    margin-left: 1rem;
+}
+
+
 .btn {
-    background: var(--combined-colors);
+    background: var(--combined-colors-1);
     border: none;
     width: 5rem;
     height: 50px;
@@ -92,7 +105,7 @@ section {
     position: absolute;
     top: 100%;
     left: 0;
-    background: var(--combined-colors);
+    background: var(--combined-colors-1);
     width: 100%;
     height: 0.125rem;
     transition: transform 0.25s ease-in-out;
@@ -104,12 +117,64 @@ section {
     transform: scaleX(100%);
 }
 
-
-.display {
-    background: var(--combined-colors);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: var(--fs-header);
-    margin-left: 1rem;
+#profile-card {
+    width: clamp(250px, 30vw, 400px);
+    height: 450px;
+    background: var(--clr-gray);
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2.5%;
 }
 
+#circle {
+    transform: scale(1);
+    width: 35%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: var(--combined-colors-2);
+    transition: transform .5s ease-in-out;
+    z-index: 0;
+}
+
+#my-image {
+    margin-top: 1%;
+    width: 33%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: url(346127871_899630224436214_6342236349956509361_n.png) var(--clr-gray);
+    background-position: 50% 30%;   
+    background-size: cover;
+    position: absolute;
+}
+
+#profile-card:hover #circle {
+    transform: scale(10);
+}
+
+
+
+.display {
+    font-size: var(--fs-display);
+    z-index: 1;
+    color: var(--clr-white);
+}
+
+.line {
+    z-index: 1;
+    width: 95%;
+    height: 0.75%;
+    margin: 0.25rem 0;
+    background: var(--combined-colors-1);
+}
+
+.body {
+    font-size: var(--fs-body);
+    z-index: 1;
+    color: var(--clr-white);
+    text-align: center;
+    margin: 0 5%;
+}
