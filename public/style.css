@@ -117,46 +117,6 @@ section {
     transform: scaleX(100%);
 }
 
-#profile-card {
-    width: clamp(250px, 30vw, 400px);
-    height: 450px;
-    background: var(--clr-gray);
-    border-radius: 0.5rem;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2.5%;
-}
-
-#circle {
-    transform: scale(1);
-    width: 35%;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background: var(--combined-colors-2);
-    transition: transform .5s ease-in-out;
-    z-index: 0;
-}
-
-#my-image {
-    margin-top: 1%;
-    width: 33%;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background: url(346127871_899630224436214_6342236349956509361_n.png) var(--clr-gray);
-    background-position: 50% 30%;   
-    background-size: cover;
-    position: absolute;
-}
-
-#profile-card:hover #circle {
-    transform: scale(10);
-}
-
-
-
 .display {
     font-size: var(--fs-display);
     z-index: 1;
@@ -167,7 +127,6 @@ section {
     z-index: 1;
     width: 95%;
     height: 0.75%;
-    margin: 0.25rem 0;
     background: var(--combined-colors-1);
 }
 
@@ -177,4 +136,77 @@ section {
     color: var(--clr-white);
     text-align: center;
     margin: 0 5%;
+}
+
+#profile-card {
+    width: clamp(325px, 30vw, 475px);
+    height: 550px;
+    background: var(--clr-gray);
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 1;
+}
+
+#my-image {
+    margin-top: 1%;
+    width: 33%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: url(346127871_899630224436214_6342236349956509361_n.png) var(--clr-gray);
+    background-position: 50% 30%;
+    background-size: cover;
+    position: relative;
+}
+
+#my-image::before, #my-image::after {
+    content: "";
+    width: 105%;
+    height: 105%;
+    border-radius: 50%;
+    position: absolute;
+    left: -2.5%;
+    top: -2.5%;
+    background: var(--combined-colors-2);
+    z-index: -1;
+    transition: transform .25s ease-in-out;
+    transform: scale(1);
+}
+
+#my-image::after{
+    filter: blur(0.25rem);
+}
+
+#profile-card:hover #my-image::before, #profile-card:hover #my-image::after {
+     transform: scale(10);
+}
+
+#profile-card:hover .display, #profile-card:hover .body {
+    animation: text_fade 0.25s ease-in-out forwards;
+}
+
+#profile-card:hover .line{
+    animation: line_fade 0.25s ease-in-out forwards;
+}
+
+@keyframes text_fade {
+    from {
+        color: var(--clr-white);
+    }
+    to {
+        color: var(--clr-black);
+    }
+}
+
+@keyframes line_fade {
+    from {
+        background: var(--combined-colors-1);
+    }
+    to {
+        background: var(--clr-black);
+    }
 }
